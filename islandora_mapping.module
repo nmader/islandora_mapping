@@ -1,26 +1,38 @@
 <?php
+/**
+ * @file
+ * Defines all the hooks this module implements.
+ *
+ * islandora_mapping.module
+ * provides theme functions to embed map objects within pages
+ */
 
-function islandora_mapping_theme(){
+
+/**
+ * Implements hook_theme().
+ */
+function islandora_mapping_theme() {
   return array(
-   'islandora_mapping_map_single_item' => array(
-    'variables' => array(
-      'latitude' => NULL,
-      'longitude' => NULL,
-      'div_id' => 'islandora_mapping_map_mapper',
-      'height' => '400',
-      'width' => '600',
+    'islandora_mapping_map_single_item' => array(
+      'variables' => array(
+        'latitude' => NULL,
+        'longitude' => NULL,
+        'div_id' => 'islandora_mapping_map_mapper',
+        'height' => '400',
+        'width' => '600',
+      ),
     ),
-   )
   );
 }
 
-
+/**
+ * Implements wrapper to map single item. 
+ */
 function theme_islandora_mapping_map_single_item(array $variables) {
   $latitude = $variables['latitude'];
   $longitude = $variables['longitude'];
   $div_id = $variables['div_id'];
   $height = $variables['height'];
-  $width = $variables['width']; 
-  
-  return ip_geoloc_output_map($latitude, $longitude, $div_id, "height: " . $height . "px; width:" . $width . "px;") ;
+  $width = $variables['width'];
+  return ip_geoloc_output_map($latitude, $longitude, $div_id, "height: " . $height . "px; width:" . $width . "px;");
 }
