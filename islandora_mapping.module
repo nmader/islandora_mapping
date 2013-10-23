@@ -1,0 +1,26 @@
+<?php
+
+function islandora_mapping_theme(){
+  return array(
+   'islandora_mapping_map_single_item' => array(
+    'variables' => array(
+      'latitude' => NULL,
+      'longitude' => NULL,
+      'div_id' => 'islandora_mapping_map_mapper',
+      'height' => '400',
+      'width' => '600',
+    ),
+   )
+  );
+}
+
+
+function theme_islandora_mapping_map_single_item(array $variables) {
+  $latitude = $variables['latitude'];
+  $longitude = $variables['longitude'];
+  $div_id = $variables['div_id'];
+  $height = $variables['height'];
+  $width = $variables['width']; 
+  
+  return ip_geoloc_output_map($latitude, $longitude, $div_id, "height: " . $height . "px; width:" . $width . "px;") ;
+}
