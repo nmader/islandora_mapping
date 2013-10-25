@@ -1,5 +1,14 @@
 <?php
+/**
+* @file
+* Defines all the hooks this module implements.
+*
+* This module provides stub functions in order to test rendering of map objects.
+*/
 
+/**
+* provides basic page to display map div
+*/
 function islandora_mapping_test_menu() {
  return array(
    'test/islandora_map_single' => array(
@@ -12,7 +21,9 @@ function islandora_mapping_test_menu() {
  );
 }
 
-
+/**
+* provides callback function to call theme function for automated testing purposes
+*/
 function islandora_mapping_single_test_callback() {
   $variables = array(
     'latitude' => '46.25',

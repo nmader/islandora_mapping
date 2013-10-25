@@ -3,8 +3,7 @@
  * @file
  * Defines all the hooks this module implements.
  *
- * islandora_mapping.module
- * provides theme functions to embed map objects within pages
+ * This module provides theme functions to embed maps within pages.  
  */
 
 
@@ -26,7 +25,7 @@ function islandora_mapping_theme() {
 }
 
 /**
- * Implements wrapper to map single item. 
+ * Implements wrapper to map single item.
  */
 function theme_islandora_mapping_map_single_item(array $variables) {
   $latitude = $variables['latitude'];
