@@ -1,0 +1,4 @@
+name = Islandora Mapping Test
+core = 7.x
+dependencies[] = islandora_mapping
+hidden = TRUE 

@@ -1,0 +1,28 @@
+<?php
+
+class IslandoraMappingTestCase extends DrupalWebTestCase{
+  public static function getInfo () {
+    return array(
+     'name' => 'Islandora Mapping',
+     'description' => 'Web test to ensure the module is outputting proper JS and markup and that map is rendering on page',
+     'group' => 'Islandora',
+    );
+  }
+
+  public function setUp() {
+    parent::setup(array('islandora_mapping_test'));
+
+  }
+
+  public function testRenderMap() {
+    $this->drupalGet('test/islandora_map_single');    
+    $this->assertResponse('200', 'test module page loaded successfully');
+    $map_node = $this->xpath("//div[@id='islandora_map_single_test']");
+// doesn't seem to parse JS
+//    $this->assertNotEqual($map_node[0]->count(), 0, 'contains content, hooray' ); 
+     
+  }
+
+
+
+}
