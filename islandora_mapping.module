@@ -35,7 +35,6 @@ function islandora_mapping_theme() {
  * Implements wrapper to map single item.
  */
 function theme_islandora_mapping_map_single_item(array $variables) {
-  dsm($variables,"theme single item");
   $latitude = $variables['latitude'];
   $longitude = $variables['longitude'];
   $div_id = $variables['div_id'];
@@ -48,7 +47,6 @@ function theme_islandora_mapping_map_single_item(array $variables) {
  * Implements wrapper to map multi item.
  */
 function theme_islandora_mapping_map_multi_item(array $variables) {
-  dsm($variables,"theme multi item");
   $locations = $variables['locations'];
   $map_options = $variables['map_options'];
   $map_style = $variables['map_style'];
