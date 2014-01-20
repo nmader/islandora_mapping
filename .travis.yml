@@ -15,7 +15,8 @@ before_install:
   - $HOME/islandora/tests/scripts/travis_setup.sh
   - cd $HOME/drupal-*
   - ln -s $TRAVIS_BUILD_DIR sites/all/modules/islandora_mapping
-  - drush en --yes islandora_mapping
+  - drush dl ip_geoloc
+  - drush en --yes islandora_mapping ip_geoloc
 script:
   - ant -buildfile $ISLANDORA_DIR/build.xml lint
   - $ISLANDORA_DIR/tests/scripts/line_endings.sh sites/all/modules/islandora_mapping
