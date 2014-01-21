@@ -20,7 +20,7 @@ class IslandoraMappingTestCase extends DrupalWebTestCase {
     return array(
       'name' => 'Islandora Mapping',
       'description' => 'Web test to ensure the module is outputting proper JS and markup and that map is rendering on page',
-      'group' => 'Islandora',
+      'group' => 'Islandora Mapping',
     );
   }
 
@@ -28,17 +28,24 @@ class IslandoraMappingTestCase extends DrupalWebTestCase {
    * This loads the testing stub modules.
    */
   public function setUp() {
-    parent::setup(array('islandora_mapping_test'));
-
+    parent::setup(array(
+      'islandora_mapping_test',
+      'ip_geoloc',
+    ));
   }
 
   /**
-   * This function tests the rendering of a single map item. 
+   * This function tests the rendering of a single map item.
    */
   public function testRenderMap() {
     $this->drupalGet('test/islandora_map_single');
     $this->assertResponse('200', 'test module page loaded successfully');
     $map_node = $this->xpath("//div[@id='islandora_map_single_test']");
-    $this->assertNotNull($map_node[0]->count(), 0, 'contains content, hooray');
+    if (is_object($map_node[0])) {
+      $this->assertNotNull($map_node[0]->count(), 0, 'contains content, hooray');
+    }
+    else {
+      $this->fail("No map nodes found.", "Islandora");
+    }
   }
 }
